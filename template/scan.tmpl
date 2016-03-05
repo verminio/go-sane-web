@@ -1,0 +1,10 @@
+{{ define "content" }}
+    <form>
+        <label for="device">Scanner:</label>
+        <select id="device">
+        {{ range $index, $device := .Devices }}
+            <option value="{{ .Name }}">{{ .Name }} - {{ .Model }}</option>
+    {{ end }}
+        </select>
+    </form>
+{{ end }}

@@ -1,0 +1,24 @@
+{{ define "layout" }}
+<html>
+    <head>
+        <title>go-sane-web</title>
+    </head>
+    <body>
+        <header>
+            <div id="logoHeader">
+                <span>go-sane-web</span>
+            </div>
+            <nav>
+                {{ template "nav" }}
+            </nav>
+        </header>
+        <section id="content">
+            {{ template "content" . }}
+        </section>
+        <footer>
+            {{ template "footer" }}
+        </footer>
+    </body>
+</html>
+
+{{ end }}

@@ -3,17 +3,27 @@ package handler
 import (
 	"github.com/tjgq/sane"
 	"net/http"
+    "log"
 )
 
 func init() {
+    log.Println("Initializing SANE bindings")
 	err := sane.Init()
 	if err != nil {
 		panic(err)
 	}
+    log.Println("Finished initializing SANE bindings")
 }
 
 func ScanHandler(w http.ResponseWriter, r *http.Request) {
-	templates["scan"].ExecuteTemplate(w, "layout", "")
+  switch {
+    case r.Method == "GET":
+        scanGET(w, r)
+        return
+    default:
+        http.Error(w, "", http.StatusNotImplemented)
+        return
+    }
 }
 
 func scanGET(w http.ResponseWriter, r *http.Request) {

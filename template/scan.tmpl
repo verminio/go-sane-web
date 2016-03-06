@@ -3,7 +3,7 @@
         <label for="device">Scanner:</label>
         <select id="device">
         {{ range $index, $device := .Devices }}
-            <option value="{{ .Name }}">{{ .Name }} - {{ .Model }}</option>
+            <option value="{{ .Name }}">{{ .Model }}</option>
     {{ end }}
         </select>
     </form>
